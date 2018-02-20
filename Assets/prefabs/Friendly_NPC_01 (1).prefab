@@ -40,7 +40,8 @@ GameObject:
   - component: {fileID: 23484937740282916}
   - component: {fileID: 136605381246833028}
   - component: {fileID: 54373507172582914}
-  - component: {fileID: 114046771703479814}
+  - component: {fileID: 114031069656186042}
+  - component: {fileID: 114540313040193890}
   m_Layer: 0
   m_Name: Friendly_NPC_01 (1)
   m_TagString: Untagged
@@ -67,8 +68,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160816056860016}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 151.37, y: 1, z: 150}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 8.504456, y: 5.246334, z: -1.9452362}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548067911914780}
@@ -84,6 +85,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -99,6 +101,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -116,6 +119,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,6 +135,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -161,14 +166,14 @@ Rigidbody:
   m_GameObject: {fileID: 1160816056860016}
   serializedVersion: 2
   m_Mass: 3
-  m_Drag: 5
+  m_Drag: 1
   m_AngularDrag: 20
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &114046771703479814
+--- !u!114 &114031069656186042
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,16 +181,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1160816056860016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a42527636ea62b40a87fa1a170ead07, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4d716a3be352440a0de4737c8b0c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeedRate: 0
-  angularSpeedRate: 24
-  rbBase: {fileID: 54373507172582914}
-  target: {fileID: 0}
-  isWithinProximity: 0
-  proximityDistance: 0
-  proximityLimit: 8
+  destinationPoint:
+  - {fileID: 4952568007468618}
+  randomPoint: 0
+  stallTime: 0
+  initialStallTime: 0
+  aimScript: {fileID: 0}
+--- !u!114 &114540313040193890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160816056860016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2420b1ee7945c479f895a725896926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseTranslationSpeed: 0
+  m_baseRotationSpeed: 3
+  m_baseJumpForce: 20
+  m_baseRigidBody: {fileID: 0}
+  m_movementEffect: 0
+  m_isGrounded: 0
+  playerPosition: {fileID: 0}
+  isWithinRange: 0
+  rangeOuterLimit: 10
+  rangeInnerLimit: 5
+  destination: {x: 0, y: 0, z: 0}
+  range: 0
+  m_aggroStatus: 0
+  m_pathStatus: 0
+  initialPosTransform: {fileID: 0}
+  initialPosVec: {x: 0, y: 0, z: 0}
+  initialOrientation: {x: 0, y: 0, z: 0}
+  aipbScript: {fileID: 0}
 --- !u!136 &136605381246833028
 CapsuleCollider:
   m_ObjectHideFlags: 1

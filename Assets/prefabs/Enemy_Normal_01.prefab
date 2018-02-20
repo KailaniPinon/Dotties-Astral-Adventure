@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 23870154347911484}
   - component: {fileID: 136656978004241252}
   - component: {fileID: 54423291992317548}
-  - component: {fileID: 114162675178336312}
+  - component: {fileID: 114459120392647104}
+  - component: {fileID: 114332951404143036}
   m_Layer: 0
   m_Name: Enemy_Normal_01
   m_TagString: Untagged
@@ -67,14 +68,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512068505603356}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.5, y: 1, z: 161.5}
+  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 15, y: 5.246334, z: 19.25476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4014504417553130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!23 &23281261144332548
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -84,6 +85,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -99,6 +101,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -116,11 +119,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ad7997da191c494f9173c27f876e40b, type: 2}
+  - {fileID: 2100000, guid: ab96f3388a5a0e74a8ad04875ccd4150, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,6 +135,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -161,14 +166,14 @@ Rigidbody:
   m_GameObject: {fileID: 1512068505603356}
   serializedVersion: 2
   m_Mass: 3
-  m_Drag: 5
-  m_AngularDrag: 20
+  m_Drag: 1
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &114162675178336312
+  m_CollisionDetection: 1
+--- !u!114 &114332951404143036
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,16 +181,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512068505603356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a42527636ea62b40a87fa1a170ead07, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2420b1ee7945c479f895a725896926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeedRate: 250
-  angularSpeedRate: 24
-  rbBase: {fileID: 54423291992317548}
-  target: {fileID: 0}
-  isWithinProximity: 0
-  proximityDistance: 0
-  proximityLimit: 12
+  m_baseTranslationSpeed: 60
+  m_baseRotationSpeed: 3
+  m_baseJumpForce: 0
+  m_baseRigidBody: {fileID: 0}
+  m_movementEffect: 0
+  m_isGrounded: 0
+  playerPosition: {fileID: 0}
+  isWithinRange: 0
+  rangeOuterLimit: 10
+  rangeInnerLimit: 4
+  destination: {x: 0, y: 0, z: 0}
+  range: 0
+  m_aggroStatus: 0
+  m_pathStatus: 0
+  initialPosTransform: {fileID: 0}
+  initialPosVec: {x: 0, y: 0, z: 0}
+  initialOrientation: {x: 0, y: 0, z: 0}
+  aipbScript: {fileID: 0}
+--- !u!114 &114459120392647104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1512068505603356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d716a3be352440a0de4737c8b0c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationPoint:
+  - {fileID: 4214270092974038}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  randomPoint: 0
+  stallTime: 0
+  initialStallTime: 2
+  aimScript: {fileID: 0}
 --- !u!136 &136656978004241252
 CapsuleCollider:
   m_ObjectHideFlags: 1
