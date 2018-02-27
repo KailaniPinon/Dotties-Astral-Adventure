@@ -228,6 +228,7 @@
     <Compile Include="Assets\scripts\aiScripts\AIExplosiveBehavior.cs" />
     <Compile Include="Assets\scripts\aiScripts\AIMovement.cs" />
     <Compile Include="Assets\scripts\baseScripts\BaseCharacterMovement.cs" />
+    <Compile Include="Assets\scripts\CameraFacingBillboard.cs" />
     <Compile Include="Assets\scripts\playerScripts\CameraArm.cs" />
     <Compile Include="Assets\scripts\playerScripts\PlayerMovement.cs" />
   </ItemGroup>
